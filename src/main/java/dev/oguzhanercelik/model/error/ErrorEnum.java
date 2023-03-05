@@ -15,7 +15,9 @@ public enum ErrorEnum {
     EMAIL_ALREADY_EXIST(1004, "email.already.exist", HttpStatus.BAD_REQUEST),
     USER_NOT_CREATED(1005, "user.not.created", HttpStatus.INTERNAL_SERVER_ERROR),
     LIST_NOT_FOUND(1006, "list.not.found", HttpStatus.NOT_FOUND),
-    TASK_NOT_FOUND(1007, "task.not.found", HttpStatus.NOT_FOUND);
+    TASK_NOT_FOUND(1007, "task.not.found", HttpStatus.NOT_FOUND),
+    LIST_MAX_LENGTH(1008,"list.max.length", HttpStatus.BAD_REQUEST),
+    TASK_MAX_LENGTH(1009,"task.max.length", HttpStatus.BAD_REQUEST);
 
     private final int code;
     private final String key;

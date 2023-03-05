@@ -26,6 +26,9 @@ public class TaskService {
 
     @Transactional
     public TaskDto create(Integer listId, TaskCreateRequest request, Integer userId) {
+        if (taskRepository.countByListIdAndUserId(listId, userId) >= 10){
+            throw new ApiException(ErrorEnum.TASK_MAX_LENGTH);
+        }
         checkListExists(listId, userId);
         Task task = taskConverter.toEntity(listId, request, userId);
         return taskConverter.toDto(taskRepository.save(task));

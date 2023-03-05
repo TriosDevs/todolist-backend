@@ -10,5 +10,6 @@ public interface ListRepository extends JpaRepository<List, Integer> {
     java.util.List<List> findByUserId(Integer userId);
     Optional<List> findById(Integer id);
     boolean existsByIdAndUserId(Integer id, Integer userId);
+    Integer countByUserId(Integer userId);
 
 }

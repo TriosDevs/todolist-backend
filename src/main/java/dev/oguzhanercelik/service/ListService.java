@@ -21,6 +21,9 @@ public class ListService {
 
     @Transactional
     public ListDto create(ListCreateRequest request, Integer userId) {
+        if (listRepository.countByUserId(userId) >= 5) {
+            throw new ApiException(ErrorEnum.LIST_MAX_LENGTH);
+        }
         final List list = listConverter.toEntity(request, userId);
         return listConverter.toDto(listRepository.save(list));
     }
