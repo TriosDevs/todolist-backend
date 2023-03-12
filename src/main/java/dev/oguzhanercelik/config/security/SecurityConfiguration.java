@@ -55,7 +55,7 @@ public class SecurityConfiguration {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.debug(false)
+        return web -> web.debug(false)
                 .ignoring()
                 .antMatchers(getWhiteList());
     }
@@ -70,8 +70,7 @@ public class SecurityConfiguration {
                 "/favicon.ico",
                 "/csrf",
                 "/",
-                "/auth/login",
-                "/auth/register"
+                "/auth/**"
         };
     }
 }
